@@ -14,12 +14,12 @@ def bruteforce_archive(zip_path, txt_path):
             for line in txt_file:
                 password = line.strip()
                 try:
-                    archive.extractall(zip_path.removesuffix(".zip"), pwd=password)
+                    archive.extractall(zip_path[:-4], pwd=password)
                     print(f"Password: {password} was correct!\n")
-                    return zip_path.removesuffix(".zip") + "/"
+                    return zip_path[:-4] + "/"
                 except (RuntimeError, zlib.error, zipfile.BadZipFile):
                     continue
-            shutil.rmtree(zip_path.removesuffix(".zip"))
+            shutil.rmtree(zip_path[:-4])
             raise RuntimeError(f"None of the passwords in {txt_path} were correct for {zip_path}.")
 
 
