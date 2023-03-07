@@ -40,8 +40,8 @@ archives = glob.glob(working_directory + "*.zip")
 while archives:  # Continue bruteforcing until the extracted folder does not contain a zip file
     working_directory = bruteforce_archive(archives[0], password_txt_path)
     archives = glob.glob(working_directory + "*.zip")
-else:  # Print the content of all the found txt files to the screen and move the files to the root folder
-    for txt_path in glob.glob(working_directory + "*.txt"):
+else:  # Print the content of all the found files to the screen and move the files to the root folder
+    for txt_path in glob.glob(working_directory + "*"):
         with open(txt_path, mode="r") as t:
             print(t.read())
         shutil.move(txt_path, ".")
