@@ -24,8 +24,10 @@ def bruteforce_archive(zip_path, txt_path):
 
 
 print(f"Password file: {password_txt_path}\n")
-while archives := glob.glob(working_directory + "*.zip"):
+archives = glob.glob(working_directory + "*.zip")
+while archives:
     working_directory = bruteforce_archive(archives[0], password_txt_path)
+    archives = glob.glob(working_directory + "*.zip")
 else:
     for txt_path in glob.glob(working_directory + "*.txt"):
         with open(txt_path, mode="r") as t:
