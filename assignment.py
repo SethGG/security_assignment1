@@ -6,6 +6,7 @@ import sys
 
 # Security 2023 Assignment 1
 # Daniël Zee s2063131
+# Tested on Python 3.6.9
 
 
 def bruteforce_archive(zip_path, txt_path):
